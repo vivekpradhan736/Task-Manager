@@ -18,7 +18,7 @@ const Task = ({ task, deleteTaskParent }) => {
     >
       <div className="p-5">
         <div className="flex justify-between">
-          <h1 className="text-2xl font-semibold">{task.title}</h1>
+          <h1 className="text-2xl font-semibold">{task?.title}</h1>
           <span
             onClick={() => {
               deleteTask(task?._id);
