@@ -10,7 +10,7 @@ export default function App({ Component, pageProps }) {
         <UserProvider>
           <ToastContainer />
           <CustomNavbar />
-          <Component {...pageProps} />;
+          <Component {...pageProps} />
         </UserProvider>
     </>
   );

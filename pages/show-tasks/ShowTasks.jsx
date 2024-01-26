@@ -4,6 +4,7 @@ import { deleteTask, getTasksOfUser } from "@/services/taskService";
 import React, { useContext, useEffect, useState } from "react";
 import Task from "./Task.jsx";
 import { toast } from "react-toastify";
+import Loading from "../about/loading.js";
 
 const ShowTasks = () => {
   const [tasks, setTasks] = useState([]);
@@ -34,6 +35,10 @@ const ShowTasks = () => {
   }
 
   return (
+    <>
+    {
+      tasks == 0 ? (<Loading />) : 
+      (
     <div className="grid grid-cols-12 mt-3">
       <div className="col-span-6 col-start-4">
         <h1 className="text-3xl mb-3 ">Your tasks ( {tasks.length} )</h1>
@@ -47,6 +52,9 @@ const ShowTasks = () => {
         ))}
       </div>
     </div>
+      )
+    }
+    </>
   );
 };
 

@@ -6,7 +6,7 @@ export const metadata = {
 };
 
 const SignUpPage = () => {
-  return <Signup />;
+  return <Signup />
 };
 
 export default SignUpPage;

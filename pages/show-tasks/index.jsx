@@ -4,7 +4,7 @@ export const metadata = {
   title: "All Tasks : Work Manager",
 };
 const ShowTasksPage = () => {
-  return <ShowTasks />;
+  return <ShowTasks />
 };
 
 export default ShowTasksPage;
