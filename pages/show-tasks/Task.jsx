@@ -13,7 +13,7 @@ const Task = ({ task, deleteTaskParent }) => {
   return (
     <div
       className={` shadow-lg mt-2 rounded-md ${
-        task.status == "completed" ? "bg-green-800" : "bg-gray-800"
+        task?.status == "completed" ? "bg-green-800" : "bg-gray-800"
       }`}
     >
       <div className="p-5">
@@ -21,23 +21,23 @@ const Task = ({ task, deleteTaskParent }) => {
           <h1 className="text-2xl font-semibold">{task.title}</h1>
           <span
             onClick={() => {
-              deleteTask(task._id);
+              deleteTask(task?._id);
             }}
             className="shadow-lg hover:bg-gray-900 bg-gray-950 rounded-full w-9 h-9 flex justify-center items-center cursor-pointer "
           >
             <RiDeleteBinLine />
           </span>
         </div>
-        <p className="font-normal">{task.content}</p>
+        <p className="font-normal">{task?.content}</p>
         <div className="flex justify-between mt-3">
           <p className="text-left">
             Status:{" "}
             <span
               className={` font-bold ${
-                task.status == "pending" ? "text-red-600" : "text-white"
+                task?.status == "pending" ? "text-red-600" : "text-white"
               }`}
             >
-              {task.status}
+              {task?.status}
             </span>
           </p>
           <p className="text-right">
