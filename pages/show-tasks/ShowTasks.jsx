@@ -7,13 +7,18 @@ import { toast } from "react-toastify";
 import Loading from "../about/loading.js";
 
 const ShowTasks = () => {
+  const [loading, setLoading] = useState(false)
   const [tasks, setTasks] = useState([]);
   const context = useContext(UserContext);
   async function loadTasks(userId) {
     try {
+      setLoading(true)
       const tasks = await getTasksOfUser(userId);
+      setLoading(false)
       setTasks([...tasks.tasks].reverse());
     } catch (error) {
+      toast.info(error.response.data.msg);
+      setLoading(false)
     }
   }
 
@@ -37,7 +42,7 @@ const ShowTasks = () => {
   return (
     <>
     {
-      tasks == 0 ? (<Loading />) : 
+      loading ? (<Loading />) : 
       (
     <div className="grid grid-cols-12 mt-3">
       <div className="col-span-6 col-start-4">

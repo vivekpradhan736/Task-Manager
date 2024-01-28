@@ -6,6 +6,7 @@ import Image from "next/image";
 import { addTask } from "@/services/taskService";
 import { toast } from "react-toastify";
 import { useContext } from "react";
+import Loading from "../about/loading";
 
 const AddTask = () => {
   const context = useContext(UserContext);
@@ -13,26 +14,35 @@ const AddTask = () => {
     title: "",
     content: "",
     status: "none",
-    userId: context?.user?._id,
   });
+  const [loading, setLoading] = useState(false)
 
   const handleAddTask = async (event) => {
     event.preventDefault();
-
+    setLoading(true)
     try {
-      const result = await addTask(task);
+      const result = await addTask({...task, userId: context?.user?._id});
       toast.success("Your task is added !!", {
         position: "top-center",
       });
+      setLoading(false)
 
       setTask({
         title: "",
         content: "",
         status: "none",
+        userId: ""
       });
     } catch (error) {
-      toast.error("Task not added !!" + error.response.data.msg, {
+      toast.error("Task not added !!" + error?.response?.data?.msg, {
         position: "top-center",
+      });
+      setLoading(false)
+      setTask({
+        title: "",
+        content: "",
+        status: "none",
+        userId: ""
       });
     }
   };
@@ -42,6 +52,7 @@ const AddTask = () => {
       title: "",
       content: "",
       status: "none",
+      userId: ""
     });
   };
 
@@ -132,8 +143,18 @@ const AddTask = () => {
 
           {/* button  actions */}
           <div className="mt-4 flex justify-center">
-            <button className="bg-blue-600 py-2 px-3 rounded-lg hover:bg-blue-800">
-              Add Task{" "}
+            <button className="bg-blue-600 py-2 px-3 rounded-lg hover:bg-blue-800 flex justify-center items-center gap-6">
+            {
+              loading ? (
+                <div className="">
+                <Loading />
+                  {/* <div className="w-4 h-4 border-2 border-transparent rounded-full border-t-[2px] border-white animate-spin"></div> */}
+                </div>
+              ) : ""
+            }
+            <h2 className="">
+              Add Task
+            </h2>
             </button>
             <button
               type="button"

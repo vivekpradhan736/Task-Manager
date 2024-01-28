@@ -34,17 +34,17 @@ const CustomNavbar = () => {
           {context.user && (
             <>
               <li>
-                <Link href={"/"} className="hover:text-blue-200">
+                <Link href={"/"} className="hover:text-blue-200 hover:bg-[#c0bebe34] duration-100 py-1 px-2 rounded-lg">
                   Home
                 </Link>
               </li>
               <li>
-                <Link href="/add-task" className="hover:text-blue-200">
+                <Link href="/add-task" className="hover:text-blue-200 hover:bg-[#c0bebe34] duration-100 py-1 px-2 rounded-lg">
                   Add Task
                 </Link>
               </li>
               <li>
-                <Link href={"/show-tasks"} className="hover:text-blue-200">
+                <Link href={"/show-tasks"} className="hover:text-blue-200 hover:bg-[#c0bebe34] duration-100 py-1 px-2 rounded-lg">
                   My Tasks
                 </Link>
               </li>
@@ -53,7 +53,7 @@ const CustomNavbar = () => {
         </ul>
       </div>
       <div>
-        <ul className="flex space-x-5 items-center">
+        <ul className="flex  items-center">
           {context.user && (
             <>
               <li className="flex items-center">
@@ -66,14 +66,14 @@ const CustomNavbar = () => {
                 </Link>
                 <Link
                   href={"/profile/user"}
-                  className="hover:bg-[#c0bebe34] duration-200 py-1 px-2 rounded-sm"
+                  className="hover:bg-[#c0bebe34] duration-100 py-1 px-2 rounded-lg"
                 >
                   {context?.user?.name}
                 </Link>
               </li>
-              <li>
+              <li className="hover:bg-[#c0bebe34] duration-100">
                 <button
-                  className="text-[#a33232] font-bold text-lg hover:bg-[#c0bebe34] duration-200 px-2 rounded-sm"
+                  className="text-[#a33232] font-bold text-lg hover:bg-[#c0bebe34] duration-100 px-2 rounded-lg"
                   onClick={doLogout}
                 >
                   Logout
@@ -85,12 +85,12 @@ const CustomNavbar = () => {
           {!context.user && (
             <>
               <li>
-                <Link href="/login" className="hover:text-blue-200">
+                <Link href="/login" className="hover:text-blue-200 hover:bg-[#c0bebe34] duration-100 py-1 px-2 rounded-lg">
                   Login
                 </Link>
               </li>
               <li>
-                <Link href="/signup" className="hover:text-blue-200">
+                <Link href="/signup" className="hover:text-blue-200 hover:bg-[#c0bebe34] duration-100 py-1 px-2 rounded-lg">
                   Signup
                 </Link>
               </li>

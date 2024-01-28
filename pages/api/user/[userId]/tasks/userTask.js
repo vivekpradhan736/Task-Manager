@@ -10,12 +10,12 @@ export default async function GET(req, res) {
     // get user using id
     const tasks = await Task.find({ userId: userId, });
     if (!tasks || !tasks.length) {
-      return res.status(401).json({ message: "No task found !", success: false });
+      return res.status(401).json({ msg: "You have no task", success: false });
     }
     else {
-      return res.status(200).json({ message: "User all tasks find Successfully ", success: true, tasks });
+      return res.status(200).json({ msg: "User all tasks find Successfully ", success: true, tasks });
     }
   } catch (error) {
-    return getResponseMessage("Failed to get tasks", 404, false)
+    return res.status(401).json({ msg: "Failed to get tasks !", success: false, error });
   }
 }

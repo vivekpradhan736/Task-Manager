@@ -47,6 +47,6 @@ export default async function PUT(req, res, { params }) {
     const updatedUser = await user.save();
     return res.status(200).json({ msg: "User update successfully", success: true, updatedUser });
   } catch (error) {
-    return res.status(400).json({ message: "User not updated", success: false, error });
+    return res.status(400).json({ msg: "User not updated", success: false, error });
   }
 }

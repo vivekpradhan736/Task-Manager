@@ -15,8 +15,8 @@ export default async function PUT(req, res) {
       task.status = status
   
       const updatedTask = await task.save();
-      return res.status(200).json({ message: "Task update Successfully ", success: true, updatedTask });
+      return res.status(200).json({ msg: "Task update Successfully ", success: true, updatedTask });
     } catch (error) {
-      return res.status(404).json({ message: "Error in updating task !!", success: false, error });
+      return res.status(404).json({ msg: "Error in updating task !!", success: false, error });
     }
   }

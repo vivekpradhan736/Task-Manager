@@ -8,7 +8,7 @@ export default async function GET(req, res) {
   try {
     users = await User.find();
   } catch (error) {
-    return res.status(400).json({ message: "User not find !", success: false, error });
+    return res.status(400).json({ msg: "User not find !", success: false, error });
   }
-  return res.status(200).json({ message: "All Users find Successfully ", success: true, users });
+  return res.status(200).json({ msg: "All Users find Successfully ", success: true, users });
 }
